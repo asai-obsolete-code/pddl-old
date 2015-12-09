@@ -9,9 +9,8 @@
 	:guicho-utilities
 	:alexandria
 	:iterate
-	:optima
+	:trivia
         :pddl
         :fiveam)
   (:shadow :place)
-  (:shadowing-import-from :pddl :maximize :minimize)
-  (:shadowing-import-from :fiveam :fail))
+  (:shadowing-import-from :pddl :maximize :minimize))

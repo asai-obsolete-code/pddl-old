@@ -6,7 +6,7 @@ Copyright (c) 2013 guicho (guicho2.71828@gmail.com)
 (in-package :cl-user)
 (defpackage pddl
   (:use :cl
-        :optima
+        :trivia
         :alexandria
         :guicho-utilities
         :annot.doc

@@ -20,9 +20,9 @@
     (is (= 3 (arity a)))
     (finishes
       (ematch (effect a)
-	((andp
+	((pddl::andp
 	  (type pddl-predicate)
-	  (notp (type pddl-predicate)) _)
+	  (pddl::notp (type pddl-predicate)) _)
 	 nil)))
     (is (= 1 (length (delete-list a)))
 	"(length (delete-list a)) should be 1,~%~

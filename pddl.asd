@@ -20,7 +20,7 @@
   :license "LLGPL"
   :depends-on (:guicho-utilities
 	       :metatilities
-               :optima
+               :trivia
                :function-cache
                :iterate
                :alexandria
