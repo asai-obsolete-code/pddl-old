@@ -15,16 +15,18 @@
     (format t "~&Deleting : ~a" path)
     (handler-case
         (delete-file path)
-      (file-error (c)
-        @ignore c
-        (format t "~%File not Deleted : not found"))))
+      (file-error ()
+        (format t "~%File not Deleted : ~s not found" path))
+      (type-error ()
+        (format t "~%File not Deleted : ~s is not a pathname" path))))
   (defun cleanup-pddlfasl ()
-    (with-open-file (s *compiled-files-logfile*
-                       :if-does-not-exist :create)
-      (iter (for path = (read s nil))
-            (while path)
-            (delete-file-verbose path)))
-    (delete-file-verbose *compiled-files-logfile*)))
+    (unwind-protect
+        (with-open-file (s *compiled-files-logfile*
+                           :if-does-not-exist :create)
+          (iter (for path = (read s nil))
+                (while path)
+                (delete-file-verbose path)))
+      (delete-file-verbose *compiled-files-logfile*))))
 
 (export '(domain problem
           cleanup-pddlfasl
