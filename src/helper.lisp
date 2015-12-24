@@ -2,13 +2,6 @@
 (cl-syntax:use-syntax :annot)
 
 @export
-(defmacro lambda-match (&body clauses)
-  (with-gensyms (arg)
-    `(lambda (,arg)
-       (match ,arg
-         ,@clauses))))
-
-@export
 (defun not-implemented (what)
   (error "~A not implemented yet." what))
 
